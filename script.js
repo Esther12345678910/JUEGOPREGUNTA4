@@ -3,7 +3,12 @@ const ctx = canvas.getContext('2d');
 const nivelDisplay = document.getElementById('nivel');
 const sonido = document.getElementById('sonidoFondo');
 
-
+document.addEventListener('keydown', (e) => {
+  if (e.key in teclas) {
+    teclas[e.key] = true;
+    sonido.play();
+  }
+});
 
 let nivelActual = 1;
 let animacion = 0;
