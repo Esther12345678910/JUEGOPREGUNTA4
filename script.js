@@ -3,10 +3,7 @@ const ctx = canvas.getContext('2d');
 const nivelDisplay = document.getElementById('nivel');
 const sonido = document.getElementById('sonidoFondo');
 
-// Iniciar sonido (requiere interacción del usuario)
-document.addEventListener('click', () => {
-  sonido.play();
-}, { once: true });
+
 
 let nivelActual = 1;
 let animacion = 0;
@@ -44,7 +41,7 @@ function dibujarFondo() {
   animacion += 1;
   
   if (nivelActual === 1) {
-    // Fondo nivel 1: rayas verticales animadas
+    // Fondo nivel 1
     ctx.fillStyle = '#87CEEB';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -53,7 +50,7 @@ function dibujarFondo() {
       ctx.fillRect(i + (animacion % 40), 0, 20, canvas.height);
     }
   } else {
-    // Fondo nivel 2: rayas horizontales animadas
+    // Fondo nivel 2
     ctx.fillStyle = '#FFB6C1';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -106,7 +103,7 @@ function actualizarJugador() {
       nivelDisplay.style.color = '#FF5252';
       jugador.x = 0;
     } else {
-      // Nivel 2 completado - GANASTE
+      // Nivel 2 completado
       juegoTerminado = true;
     }
   }
